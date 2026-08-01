@@ -468,8 +468,12 @@ footer b{ color:var(--rose); font-family:'Baloo 2',sans-serif; }
   <div class="card">
     <div class="section-title">🎵 Our Song</div>
     <div class="section-sub">Jeene Laga Hoon 💗</div>
-    <div class="music-wrapper">
-      <iframe src="https://www.youtube.com/embed/2hAilIGlNl0?autoplay=1&mute=1&loop=1&playlist=2hAilIGlNl0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <div class="music-wrapper" style="padding:20px;">
+      <audio id="bgMusic" controls autoplay loop style="width:100%;">
+        <source src="music/Jeene-Laga-Hoon.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
     </div>
   </div>
 
@@ -671,6 +675,12 @@ function fireConfetti(count=50){
     ],{duration, easing:'cubic-bezier(0.2,0.8,0.3,1)', fill:'forwards'}).onfinish=()=>el.remove();
   }
 }
+
+const bgMusic = document.getElementById("bgMusic");
+document.addEventListener("click", () => {
+  if (bgMusic) bgMusic.play().catch(()=>{});
+}, {once:true});
+
 </script>
 </body>
 </html>
